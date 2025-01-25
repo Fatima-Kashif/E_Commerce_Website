@@ -23,11 +23,87 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    
     <html lang="en">
       <body
+      
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+      <header className="bg-white shadow p-1 flex flex-wrap justify-between items-center">
+  <div className="flex items-center ml-4 md:ml-8">
+    <img src="furniro logo.png" alt="logo" className="w-[80px] h-[80px]" />
+    <h1 className="text-xl font-bold font-custom text-2xl md:text-4xl">Furniro</h1>
+  </div>
+  
+  <nav className="flex flex-wrap text-lg font-custom gap-4 md:gap-[90px] font-medium justify-center md:justify-start w-full md:w-auto">
+    <a href="/home" className="text-black hover:text-gray-700 font-custom">Home</a>
+    <a href="/shop" className="text-black hover:text-gray-700 font-custom">Shop</a>
+    <a href="/about" className="text-black hover:text-gray-700 font-custom">About</a>
+  </nav>
+
+  {/* <div className="flex justify-around gap-4 mr-4 md:mr-[40px] items-center w-full md:w-auto "> */}
+  <div className="flex justify-center gap-4 mr-4 md:mr-[40px] items-center w-full md:w-auto mt-4 md:mt-0">
+    <img src="profile.png" alt="profile"  />
+    <img src="Search.png" alt="search"  />
+    <img src="Like.png" alt="like" />
+    <img src="cart.png" alt="cart" />
+  </div>
+</header>
+
         {children}
+
+        <footer className="bg-white border-t border-gray-200 py-10">
+  <div className="flex gap-10">
+    <div className="w-full md:w-1/4 mb-8 md:mb-0">
+      <h1 className="text-3xl font-bold ml-16">Furniro.</h1>
+    </div>
+    <div className=" px-9 flex flex-wrap justify-between">
+    <div className="w-full md:w-1/4 mb-8 md:mb-0">
+      <h2 className="text-gray-400  font-medium mb-12">Links</h2>
+      <ul className="space-y-8 text-black ">
+        <li><a href="#"  className="hover:text-gray-600" >Home</a></li>
+        <li><a href="#" className="hover:text-gray-600">Shop</a></li>
+        <li><a href="#" className=" hover:text-gray-600">About</a></li>
+        <li><a href="#" className=" hover:text-gray-600">Contact</a></li>
+      </ul>
+    </div>
+
+    <div className="w-full md:w-1/4 mb-8 md:mb-0">
+      <h2 className="text-gray-400  font-medium mb-12">Help</h2>
+      <ul className="space-y-8 font-medium text-black">
+        <li><a href="#" className="hover:text-gray-600">Payment Options</a></li>
+        <li><a href="#" className="hover:text-gray-600">Returns</a></li>
+        <li><a href="#" className="hover:text-gray-600">Privacy Policies</a></li>
+      </ul>
+    </div>
+
+    <div className="w-full md:w-1/4">
+      <h2 className="text-gray-400 font-medium mb-4">Newsletter</h2>
+      <form className="flex items-center ">
+        <input
+          type="email"
+          placeholder="Enter Your Email Address"
+          className="border-b border-black focus:outline-none focus:border-gray-500 flex-grow py-1"
+        />
+        <button
+          type="submit"
+          className="text-black font-semibold ml-2 hover:text-gray-600 border-b py-1 border-black inline-block"
+        >
+          SUBSCRIBE
+        </button>
+      </form>
+    </div>
+  </div>
+  </div>
+ 
+
+  <div className="border-t border-gray-300 mt-8 pt-6  w-3/4 ml-20">
+    <div className="container mx-auto px-4 text-sm text-black text-left">
+      2023 Funiro. All rights reserved
+    </div>
+  </div>
+</footer>
+
       </body>
     </html>
   );
