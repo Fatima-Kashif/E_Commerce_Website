@@ -1,13 +1,16 @@
-import Products from "../Components/products";
+import Products from "../../Components/products";
 function Shop() {
   return (
-    <div>
+    <div className="font-custom">
 
 <header className="bg-[#F9F1E7] py-20 text-center h-[300px]">
   <h1 className="text-3xl font-bold mt-7">Shop</h1>
   <div className="flex items-center justify-center gap-2 mt-2">
     <p className="font-bold">Home</p>
-    <img src="greaterthan.png" alt="symbol" className="w-4 h-4" />
+    <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 12L5 7L0 2L1 0L8 7L1 14L0 12Z" fill="black"/>
+</svg>
+
     <p>Shop</p>
   </div>
 </header>
@@ -114,71 +117,8 @@ function Shop() {
         <button className="px-4 py-2 bg-[#F9F1E7] rounded">Next</button>
       </div>
 
-      {/* <footer className="bg-black text-white py-20 mt-12">
-        <div className="flex justify-evenly">
-        <div className="flex gap-2 items-center justify-center ">
-          <img src="reward.png" alt="trophy" />
-          <div className="flex flex-col ">
-          <h2 className="text-[#B88E2F] text-xl font-bold ">High Quality</h2>
-    <p className="text-[#B6B6B6]">crafted from top materials</p>
-          </div>
-          </div>
-        <div className="flex gap-2 items-center justify-center">
-          <img src="check.png" alt="verify" />
-          <div className="flex flex-col">
-          <h2 className="text-xl font-bold text-[#B88E2F]">Warranty Protection</h2>
-          <p className="text-[#B6B6B6]">Over 2 years</p>
-          </div>
-          </div>
-        <div className="flex gap-2 items-center justify-center">
-          <img src="support.png" alt="trophy" />
-          <div className="flex flex-col">
-          <h2 className="text-[#B88E2F] text-xl font-bold">Free Shipping</h2>
-          <p className="text-[#B6B6B6]">Order over 150 $</p>
-          </div>
-          </div>
-        <div className="flex gap-2 items-center justify-center">
-          <img src="call.png" alt="trophy" />
-          <div className="flex flex-col">
-          <h2 className="text-[#B88E2F] text-xl font-bold ">24 / 7 Support</h2>
-          <p className="text-[#B6B6B6]">Dedicated support</p>
-          </div>
-          </div>
-          
-        </div>
-      </footer> */}
-      <footer className="bg-black text-white py-20 mt-12">
-  <div className="flex flex-wrap justify-center gap-8 md:gap-16">
-    <div className="flex gap-4 items-center justify-start max-w-xs">
-      <img src="reward.png" alt="trophy" className="w-10 h-10 md:w-12 md:h-12" />
-      <div className="flex flex-col">
-        <h2 className="text-[#B88E2F] text-lg md:text-xl font-bold">High Quality</h2>
-        <p className="text-[#B6B6B6] text-sm md:text-base">Crafted from top materials</p>
-      </div>
-    </div>
-    <div className="flex gap-4 items-center justify-start max-w-xs">
-      <img src="check.png" alt="verify" className="w-10 h-10 md:w-12 md:h-12" />
-      <div className="flex flex-col">
-        <h2 className="text-[#B88E2F] text-lg md:text-xl font-bold">Warranty Protection</h2>
-        <p className="text-[#B6B6B6] text-sm md:text-base">Over 2 years</p>
-      </div>
-    </div>
-    <div className="flex gap-4 items-center justify-start max-w-xs">
-      <img src="support.png" alt="support" className="w-10 h-10 md:w-12 md:h-12" />
-      <div className="flex flex-col">
-        <h2 className="text-[#B88E2F] text-lg md:text-xl font-bold">Free Shipping</h2>
-        <p className="text-[#B6B6B6] text-sm md:text-base">Order over $150</p>
-      </div>
-    </div>
-    <div className="flex gap-4 items-center justify-start max-w-xs">
-      <img src="call.png" alt="support" className="w-10 h-10 md:w-12 md:h-12" />
-      <div className="flex flex-col">
-        <h2 className="text-[#B88E2F] text-lg md:text-xl font-bold">24 / 7 Support</h2>
-        <p className="text-[#B6B6B6] text-sm md:text-base">Dedicated support</p>
-      </div>
-    </div>
-  </div>
-</footer>
+     
+     
 
     </div>
   );

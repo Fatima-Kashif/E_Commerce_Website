@@ -118,7 +118,7 @@ function Home(){
       </div>
     </div>
       <img src="dininghall.png" alt="dininghall" />
-      <img src="half.png" alt="half" />
+      <img src="hlf2.png" alt="half" />
       </div>
       </section>
 
