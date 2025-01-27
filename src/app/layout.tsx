@@ -37,9 +37,16 @@ export default function RootLayout({
   </div>
   
   <nav className="flex flex-wrap text-lg font-custom gap-4 md:gap-[90px] font-medium justify-center md:justify-start w-full md:w-auto">
-    <a href="/" className="text-black hover:text-gray-700 font-custom">Home</a>
-    <a href="/shop" className="text-black hover:text-gray-700 font-custom">Shop</a>
-    <a href="/about" className="text-black hover:text-gray-700 font-custom">About</a>
+  <Link href="/">
+              Home
+            
+          </Link>
+          <Link href="/shop">
+            
+              Shop
+           
+          </Link>
+    <a href="#" className="text-black hover:text-gray-700 font-custom">About</a>
   </nav>
 
   {/* <div className="flex justify-around gap-4 mr-4 md:mr-[40px] items-center w-full md:w-auto "> */}
