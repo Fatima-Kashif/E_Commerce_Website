@@ -1,25 +1,9 @@
-// function Products(params){
-//     return(
-//         <div>
-//           <img src={params.img} alt="dining" className="rounded" />
-//         <div className="p-4  font-custom text-left border bg-[#F4F5F7] flex flex-col gap-2">
-//             <p className="font-semibold">{params.product_name}</p>
-//             <p className="text-sm text-gray-500">{params.desc}</p>
-//             <p className="font-semibold">Rp {params.price}</p>
-//         </div>
-//         </div>
-      
-//     );
-// }
-// export default Products;
-
 function Products(params) {
     return (
       <div className="relative group">
-        {/* Image Section */}
+      
         <div className="relative overflow-hidden rounded">
           <img src={params.img} alt="product" className="rounded w-full" />
-          {/* Hover Content */}
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <button className="bg-white text-[#B88E2F] font-semibold py-3 px-10  shadow hover:bg-gray-100">
               Add to cart
@@ -40,7 +24,6 @@ function Products(params) {
             </div>
           </div>
         
-        {/* Product Details */}
         <div className="p-4 font-custom text-left border bg-[#F4F5F7] flex flex-col gap-2">
           <p className="font-semibold">{params.product_name}</p>
           <p className="text-sm text-gray-500">{params.desc}</p>
