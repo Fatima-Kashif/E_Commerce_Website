@@ -1,7 +1,12 @@
+"use client";
 import React from "react";
+import { useAppSelector } from "../../../lib/store/hooks";
 
 const CheckoutForm = () => {
+   const cartItems = useAppSelector((state) => state.cart.items); 
+   const subtotal=cartItems.reduce((acc, item) => acc + item.price, 0)
   return (
+
 <div className="font-custom">
     
     <div className="ml-40 mb-72">
@@ -87,21 +92,36 @@ const CheckoutForm = () => {
           <span>Product</span>
           <span>Subtotal</span>
         </div>
-            <div className="mt-4 flex justify-between "> 
-                <p>
+            <div className="mt-4 flex flex-col gap-4" > 
+            {cartItems.length > 0 ? (
+        cartItems.map((item, index) => (
+        
+          <div key={index} className="flex justify-between" >
+            <p>
+              <span className="text-[#9F9F9F]">{item.name}</span>
+              <span className="text-sm"> x 1</span>
+            </p>
+            <span>Rs. {item.price.toLocaleString()}</span>
+          </div>
+
+        ))
+      ) : (
+        <p className="text-center text-gray-500 mt-10">Your cart is empty</p>
+      )}
+                {/* <p>
           <span className="text-[#9F9F9F]">
             Asgaard sofa </span> <span className="text-sm "> x 1</span>
             </p>
-          <span>Rs. 250,000.00</span>
+          <span>Rs. 250,000.00</span> */}
           
         </div>
         <div className="mt-6 font-light flex justify-between ">
           <span>Subtotal</span>
-          <span>Rs. 250,000.00</span>
+          <span>Rs. {subtotal.toLocaleString()}</span>
         </div>
         <div className="mt-6 flex justify-between ">
           <span>Total</span>
-          <span className="text-yellow-600 text-2xl font-bold">Rs. 250,000.00</span>
+          <span className="text-yellow-600 text-2xl font-bold">Rs. {subtotal.toLocaleString()}</span>
         </div>
       </div>
 

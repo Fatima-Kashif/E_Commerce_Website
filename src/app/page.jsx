@@ -1,5 +1,19 @@
 import Products from './Components/products';
-function Home(){
+import { client } from "./lib/sanity";
+import { urlFor } from "./lib/sanity";
+async function getData(){
+  const query = `*[_type == "product"]|order(_createdAt asc){
+   "productimage":productimage.asset->url,
+  title,
+    description,
+    price
+  }`;
+  const data=await client.fetch(query);
+  return data;
+}
+async function Home(){
+  const data= await getData();
+  console.log(data);
     return (
     <div className="font-custom">
 
@@ -47,38 +61,20 @@ function Home(){
         <h1 className="text-2xl font-bold mb-10 text-center ">Our Products</h1>
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {/* I made a component and passing the params from here for reusability and called the component here */}
-         <Products  img="showpiece.png"
-         product_name="Syltherine"
-         desc="Stylish cafe chair"
-         price="2.500.000"/>
-         <Products  img="chair.png"
-         product_name="Leviosa"
-         desc="Stylish cafe chair"
-         price="2.500.000"/>
-         <Products  img="white_sofa.png"
-         product_name="Lolito"
-         desc="Luxury big sofa"
-         price="7.000.000"/>
-         <Products  img="lounge.png"
-         product_name="Respira"
-         desc="Outdoor bar table and stool"
-         price=" 500.000"/>
-         <Products  img="lamp.png"
-         product_name="Grifo"
-         desc="Night lamp"
-         price=" 1.500.000"/>
-         <Products  img="discussarea.png"
-         product_name="Muggo"
-         desc="Smallmug"
-         price="150.000"/>
-         <Products  img="livingroom.png"
-         product_name="Cute bed set"
-         desc="Stylish cafe chair"
-         price="7.000.000"/>
-         <Products  img="sofa.png"
-         product_name="Potty"
-         desc="Minimalist flower pot"
-         price="500.000"/>
+          {data && data.length > 0 ? (
+    data.map((product, idx) => (
+        <Products
+            key={idx}
+            img={urlFor(product.productimage)?.url()}
+            productname={product.title}
+            desc={product.description}
+            price={product.price}
+        />
+    ))
+) : (
+    <p>Loading products...</p>
+)}
+         
         </div>
         <button className='border-[#B88E2F] border-2 text-[#B88E2F] py-3 px-12'>Show more</button>
       </section>

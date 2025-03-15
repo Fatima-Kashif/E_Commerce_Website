@@ -1,11 +1,25 @@
-function Products(params) {
+"use client";
+import { useAppDispatch} from "../../lib/store/hooks";
+import {add} from "../../lib/store/features/cart/cart";
+function Products(props) {
+  const dispatch=useAppDispatch();
+  // const cartItems = useAppSelector((state) => state.cart.items); // Access Redux cart state
+
+  // console.log("Current Cart Items:", cartItems);
+  const handleAddToCart=(product) => {
+    console.log('adding to cart',product);
+    dispatch(add(product));
+  };
     return (
       <div className="relative group">
       
         <div className="relative overflow-hidden rounded">
-          <img src={params.img} alt="product" className="rounded w-full" />
+          <img src={props.img} alt="product" className="rounded w-full" />
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <button className="bg-white text-[#B88E2F] font-semibold py-3 px-10  shadow hover:bg-gray-100">
+            <button className="bg-white text-[#B88E2F] font-semibold py-3 px-10  shadow hover:bg-gray-100" onClick={()=>handleAddToCart( { 
+    name: props.productname, 
+    price: props.price, 
+    img: props.img})}>
               Add to cart
             </button>
             <div className="flex gap-4 mt-9 text-white">
@@ -17,7 +31,7 @@ function Products(params) {
               </button>
               <button className="flex items-center gap-1 hover:text-gray-300">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M7.99973 14.0361C-5.33333 6.66667 3.99999 -1.33333 7.99973 3.72537C12 -1.33334 21.3333 6.66667 7.99973 14.0361Z" stroke="white" stroke-width="1.8"/>
+<path d="M7.99973 14.0361C-5.33333 6.66667 3.99999 -1.33333 7.99973 3.72537C12 -1.33334 21.3333 6.66667 7.99973 14.0361Z" stroke="white" strokeWidth="1.8"/>
 </svg>
  Like
               </button>
@@ -25,12 +39,13 @@ function Products(params) {
           </div>
         
         <div className="p-4 font-custom text-left border bg-[#F4F5F7] flex flex-col gap-2">
-          <p className="font-semibold">{params.product_name}</p>
-          <p className="text-sm text-gray-500">{params.desc}</p>
-          <p className="font-semibold">Rp {params.price}</p>
+          <p className="font-semibold">{props.productname}</p>
+          <p className="text-sm text-gray-500">{props.desc}</p>
+          <p className="font-semibold">Rp {props.price}</p>
         </div>
       </div>
       </div>
+
     );
   }
   

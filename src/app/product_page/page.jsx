@@ -1,10 +1,24 @@
-
 "use client";
 import { useState } from "react";
 import Products from '../Components/products';
 import Shopping_Cart from "../shopping_cart.jsx/page.jsx";
+// import { client } from "../lib/sanity";
+// import { urlFor } from "../lib/sanity";
+// async function getData(){
+//   const query = `*[_type == "product"]|order(_createdAt asc){
+//    "productimage":productimage.asset->url,
+//   title,
+//     description,
+//     price
+//   }`;
+//   const data=await client.fetch(query);
+//   return data;
+// }
 
 export default function ProductPage() {
+  // const data= await getData();
+  // console.log(data);  // it was continuosuly running in the browser
+  
   const [selectedSize, setSelectedSize] = useState("");
   const handleClick = (size) => {
     setSelectedSize(size);
@@ -224,6 +238,21 @@ export default function ProductPage() {
       <div className="mt-12">
         <h3 className="text-2xl text-center font-500 mb-10">Related Products</h3>
         <div className="flex justify-center gap-4 mb-10">
+           {/* {data && data.length > 0 ? (
+              data.slice(0, 4).map((product, idx) => (
+                  <Products
+                      key={idx}
+                      img={urlFor(product.productimage)?.url()}
+                      productname={product.title}
+                      desc={product.description}
+                      price={product.price}
+                  />
+              ))
+          ) : (
+              <p>Loading products...</p>
+          )} */}
+          
+
           <Products
             img="showpiece.png"
             product_name="Syltherine"
