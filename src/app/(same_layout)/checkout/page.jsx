@@ -9,7 +9,7 @@ const CheckoutForm = () => {
 
 <div className="font-custom">
     
-    <div className="ml-40 mb-72">
+    <div className="mt-12 ml-40 mb-72">
 <h1 className="text-4xl font-semibold mb-6  ">Checkout</h1>
         <div className="flex items-center gap-6 mt-2  ">
           <p className="font-semibold">Home</p>
