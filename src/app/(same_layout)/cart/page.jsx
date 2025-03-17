@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useState,useEffect } from "react";
 import { useAppSelector } from "../../../lib/store/hooks";
 import { useAppDispatch } from "../../../lib/store/hooks";
 import { remove } from "../../../lib/store/features/cart/cart";
@@ -7,9 +8,27 @@ import { remove } from "../../../lib/store/features/cart/cart";
 function Cart() {
     const cartItems = useAppSelector((state) => state.cart.items); 
     const dispatch = useAppDispatch();
+    const [storedCart, setStoredCart] = useState([]);
+
+    useEffect(() => {
+        const savedCart = localStorage.getItem("cart");
+        if (savedCart) {
+            setStoredCart(JSON.parse(savedCart));
+        }
+    }, []);
+
+    useEffect(() => {
+        if (cartItems.length > 0) {
+            localStorage.setItem("cart", JSON.stringify(cartItems));
+            setStoredCart(cartItems);
+        }
+    }, [cartItems]);
 
     const handleRemoveFromCart = (productId) => {
         dispatch(remove(productId)); 
+        const updatedCart = storedCart.filter(item => item.name !== productId);
+        setStoredCart(updatedCart);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
     };
 
 
@@ -58,8 +77,8 @@ function Cart() {
                 <div className="bg-[#F9F1E7] w-[30%] h-[50%] p-5 mt-20">
                     <p className="text-2xl text-center font-bold">Cart Totals</p>
                     <div className="flex flex-col gap-8 justify-center items-center">
-                        <p className="mt-20">Subtotal <span className="text-[#9F9F9F] ml-10">Rs. {cartItems.reduce((acc, item) => acc + item.price, 0)}</span></p>
-                        <p>Total <span className="text-[#B88E2F] text-lg ml-14">Rs. {cartItems.reduce((acc, item) => acc + item.price , 0)}</span></p>
+                        <p className="mt-20">Subtotal <span className="text-[#9F9F9F] ml-10">Rs. {storedCart.reduce((acc, item) => acc + item.price, 0)}</span></p>
+                        <p>Total <span className="text-[#B88E2F] text-lg ml-14">Rs. {storedCart.reduce((acc, item) => acc + item.price , 0)}</span></p>
                         <Link href="/checkout">
                             <button className="border-2 border-black px-14 py-3 mb-20 rounded-lg">
                                 Checkout

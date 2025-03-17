@@ -1,6 +1,8 @@
+
 import Products from "../../Components/products";
 import { client } from "../../lib/sanity";
 import { urlFor } from "../../lib/sanity";
+
 async function getData(){
   const query = `*[_type == "product"]|order(_createdAt asc){
    "productimage":productimage.asset->url,
@@ -80,6 +82,8 @@ async function Shop() {
     </div>
 
       <div className="max-w-7xl mx-auto px-4 py-6 flex justify-center gap-4">
+    
+       
         <button className="px-4 py-2 bg-[#B88E2F] text-white rounded">1</button>
         <button className="px-4 py-2 bg-[#F9F1E7] rounded">2</button>
         <button className="px-4 py-2 bg-[#F9F1E7] rounded">3</button>
