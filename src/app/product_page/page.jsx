@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import Products from '../Components/products';
-import Shopping_Cart from "../shopping_cart.jsx/page.jsx";
 // import { client } from "../lib/sanity";
 // import { urlFor } from "../lib/sanity";
 // async function getData(){
@@ -11,13 +10,13 @@ import Shopping_Cart from "../shopping_cart.jsx/page.jsx";
 //     description,
 //     price
 //   }`;
-//   const data=await client.fetch(query);
+//   const data=await client.fetch(query); // server error is occurred client and server cannot run simultaneously. it is getting resolved by removing use client but I have to use useState in this
 //   return data;
 // }
 
 export default function ProductPage() {
   // const data= await getData();
-  // console.log(data);  // it was continuosuly running in the browser
+  // console.log(data);  
   
   const [selectedSize, setSelectedSize] = useState("");
   const handleClick = (size) => {
@@ -140,7 +139,8 @@ export default function ProductPage() {
                 +
               </button>
             </div>
-            <Shopping_Cart/>
+           
+           
             
           </div>
           <div className="flex flex-col bg-white border-t border-gray-200 mt-12"></div>

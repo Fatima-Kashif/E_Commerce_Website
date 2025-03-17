@@ -1,4 +1,3 @@
-
 import Products from "../../Components/products";
 import { client } from "../../lib/sanity";
 import { urlFor } from "../../lib/sanity";
@@ -62,7 +61,7 @@ async function Shop() {
 
       <div className="flex flex-wrap justify-center gap-4 m-12">
       {data && data.length > 0 ? (
-    data.map((product, idx) => (
+    data.slice(0, 8).map((product, idx) => (
         <Products
             key={idx}
             img={urlFor(product.productimage)?.url()}

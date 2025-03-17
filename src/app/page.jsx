@@ -62,7 +62,7 @@ async function Home(){
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {/* I made a component and passing the params from here for reusability and called the component here */}
           {data && data.length > 0 ? (
-    data.map((product, idx) => (
+    data.slice(0, 8).map((product, idx) => (
         <Products
             key={idx}
             img={urlFor(product.productimage)?.url()}
