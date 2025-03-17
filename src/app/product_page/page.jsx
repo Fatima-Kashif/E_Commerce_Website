@@ -139,7 +139,7 @@ export default function ProductPage() {
                 +
               </button>
             </div>
-           
+           < button className="border-2 border-black rounded-lg px-8 py-3">Add to Cart</button>
            
             
           </div>
