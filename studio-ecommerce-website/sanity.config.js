@@ -11,6 +11,9 @@ export default defineConfig({
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],
+  preview: {
+    url: 'https://e-commerce-website-three-vert.vercel.app/', 
+  },
 
   schema: {
     types: schemaTypes,
