@@ -255,24 +255,24 @@ export default function ProductPage() {
 
           <Products
             img="showpiece.png"
-            product_name="Syltherine"
+            productname="Syltherine"
             desc="Stylish cafe chair"
             price="2.500.000"
           />
           <Products
             img="chair.png"
-            product_name="Leviosa"
+            productname="Leviosa"
             desc="Stylish cafe chair"
             price="2.500.000"
           />
           <Products
             img="white_sofa.png"
-            product_name="Lolito"
+            productname="Lolito"
             desc="Stylish sofa chair"
             price="2.500.000"
           />
            <Products  img="lounge.png"
-         product_name="Respira"
+         productname="Respira"
          desc="Outdoor bar table and stool"
          price=" 500.000"/>
         </div>

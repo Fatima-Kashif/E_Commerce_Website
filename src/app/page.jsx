@@ -118,10 +118,10 @@ async function Home(){
       </div>
       </section>
 
-      <section className="py-8 text-center">
+     <section className="py-8 text-center overflow-hidden">
         <p className='text-center text-gray-500 font-semibold'>Share your setup with</p>
         <h3 className="text-2xl font-bold mb-4">#FurniroFurniture</h3>
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex mx-4">
           <div className='flex gap-4 flex-col'>
           <div className='flex gap-4'>
           <img src="hlf2.png" alt="" />
@@ -132,7 +132,7 @@ async function Home(){
           <img src="sidetable.png" alt="" />
           </div>
           </div >
-          <div className='flex items-center ' >
+          <div className='flex items-center gap-2 ' >
           <img src="dinigtable.png" alt="" />
           </div>
           <div className='flex gap-4 flex-col'>
@@ -148,8 +148,6 @@ async function Home(){
         </div>
       </section>
     </div>
-  
-
         );
 }
 export default Home;
