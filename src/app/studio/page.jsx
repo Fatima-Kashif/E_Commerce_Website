@@ -1,5 +1,6 @@
-export const dynamic = 'force-static'
 'use client';
+export const dynamic = 'force-static'
+
 import { NextStudio } from 'next-sanity/studio';
 import config from '../../../studio-ecommerce-website/sanity.config';  
 
