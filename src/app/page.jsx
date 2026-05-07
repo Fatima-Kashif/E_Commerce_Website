@@ -113,37 +113,39 @@ async function Home(){
         </div>
       </div>
     </div>
-      <img src="dininghall.png" alt="dininghall" />
-      <img src="hlf2.png" alt="half" />
+      <img src="dininghall.png" alt="dininghall" className="hidden sm:block max-w-full h-auto" />
+      <img src="hlf2.png" alt="half" className="hidden sm:block max-w-full h-auto" />
       </div>
       </section>
 
      <section className="py-8 text-center overflow-hidden">
         <p className='text-center text-gray-500 font-semibold'>Share your setup with</p>
         <h3 className="text-2xl font-bold mb-4">#FurniroFurniture</h3>
-        <div className="flex mx-4">
-          <div className='flex gap-4 flex-col'>
-          <div className='flex gap-4'>
-          <img src="hlf2.png" alt="" />
-          <img src="laptop.png" alt="" />
-          </div>
-          <div className='flex gap-4'>
-          <img src="brown_chair.png" alt="" />
-          <img src="sidetable.png" alt="" />
-          </div>
-          </div >
-          <div className='flex items-center gap-2 ' >
-          <img src="dinigtable.png" alt="" />
-          </div>
-          <div className='flex gap-4 flex-col'>
-          <div className='flex gap-4'>
-          <img src="lux_bed.png" alt="" />
-          <img src="dinner.png" alt="" />
-          </div>
-          <div className='flex gap-4'>
-          <img src="wall.png" alt="" />
-          <img src="kitchen.png" alt="" />
-          </div>
+        <div className="overflow-x-auto">
+          <div className="flex mx-4 min-w-max sm:min-w-0">
+            <div className='flex gap-4 flex-col'>
+            <div className='flex gap-4'>
+            <img src="hlf2.png" alt="" />
+            <img src="laptop.png" alt="" />
+            </div>
+            <div className='flex gap-4'>
+            <img src="brown_chair.png" alt="" />
+            <img src="sidetable.png" alt="" />
+            </div>
+            </div>
+            <div className='flex items-center gap-2'>
+            <img src="dinigtable.png" alt="" />
+            </div>
+            <div className='flex gap-4 flex-col'>
+            <div className='flex gap-4'>
+            <img src="lux_bed.png" alt="" />
+            <img src="dinner.png" alt="" />
+            </div>
+            <div className='flex gap-4'>
+            <img src="wall.png" alt="" />
+            <img src="kitchen.png" alt="" />
+            </div>
+            </div>
           </div>
         </div>
       </section>

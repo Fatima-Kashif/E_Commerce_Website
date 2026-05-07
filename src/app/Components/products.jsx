@@ -41,7 +41,7 @@ function Products(props) {
         <div className="p-4 font-custom text-left border bg-[#F4F5F7] flex flex-col gap-2">
           <p className="font-semibold">{props.productname}</p>
           <p className="text-sm text-gray-500">{props.desc}</p>
-          <p className="font-semibold">Rp {props.price}</p>
+          <p className="font-semibold">Rs. {props.price}</p>
         </div>
       </div>
       </div>
