@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./Components/Navbar";
 import StoreProvider from "./StoreProvider";
 import { AuthProvider } from "./Components/AuthProvider";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Furniro",
@@ -26,9 +27,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <div>
                     <h2 className="text-gray-400 font-medium mb-8">Links</h2>
                     <ul className="space-y-6 text-black">
-                      <li><a href="/" className="hover:text-gray-600">Home</a></li>
-                      <li><a href="/shop" className="hover:text-gray-600">Shop</a></li>
-                      <li><a href="/about" className="hover:text-gray-600">About</a></li>
+                      
+                      <li><Link href="/" className="hover:text-gray-600">Home</Link></li>
+                      <li><Link href="/" className="hover:text-gray-600">Shop</Link></li>
+                      <li><Link href="/" className="hover:text-gray-600">About</Link></li>
                     </ul>
                   </div>
                   <div>
