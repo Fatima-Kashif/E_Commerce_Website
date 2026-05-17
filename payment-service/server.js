@@ -12,7 +12,6 @@ app.use(cors({
   methods: ["GET", "POST", "PATCH", "DELETE"],
   credentials: true
 }));
-app.use(express.json());
 
 
 const payments = new Map();
