@@ -6,7 +6,7 @@ require("dotenv").config();
 const app = express();
 app.use(cors({
   origin: [
-    "https://e-commerce-website-beige-rho.vercel.app",
+    "https://e-commerce-website-1bn1dtkr1-fatima-kashifs-projects.vercel.app/",
     "http://localhost:3000"
   ],
   methods: ["GET", "POST", "PATCH", "DELETE"],
