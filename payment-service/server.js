@@ -17,9 +17,8 @@ app.use(express.json());
 
 const payments = new Map();
 
-
 app.get("/", (req, res) => {
-  res.json({ service: "Payment Service", status: "running", port: 4002 });
+  res.json({ service: "Payment Service", status: "running", port: process.env.PORT || 4002 });
 });
 
 
@@ -38,7 +37,7 @@ app.post("/payments/process", (req, res) => {
     orderId,
     amount: parseFloat(amount),
     currency,
-    method,                         // card | wallet | cod
+    method,                       
     status: isSuccess ? "succeeded" : "failed",
     failureReason: isSuccess ? null : "Insufficient funds or card declined",
     createdAt: new Date().toISOString(),
