@@ -4,10 +4,10 @@ import Link from "next/link";
 import { useAuth } from "../Components/AuthProvider";
 import { useRouter } from "next/navigation";
 
-export default function SignInPage() {
+export default function SignUpPage() {
   const { signIn } = useAuth();
   const router = useRouter();
-  const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", password: "", confirmPassword: "" });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -15,11 +15,15 @@ export default function SignInPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (form.password !== form.confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
     setLoading(true);
     setError("");
 
     try {
-      const res = await fetch("/api/auth/signin", {
+      const res = await fetch("/api/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -39,13 +43,13 @@ export default function SignInPage() {
     <div className="font-custom">
       {/* Breadcrumb */}
       <div className="bg-[#F9F1E7] py-16 text-center">
-        <h1 className="text-3xl font-bold">Sign In</h1>
+        <h1 className="text-3xl font-bold">Sign Up</h1>
         <div className="flex items-center justify-center gap-2 mt-2 text-sm text-gray-500">
           <Link href="/" className="font-semibold text-black">Home</Link>
           <svg width="6" height="10" viewBox="0 0 8 14" fill="none">
             <path d="M0 12L5 7L0 2L1 0L8 7L1 14L0 12Z" fill="#9F9F9F"/>
           </svg>
-          <span>Sign In</span>
+          <span>Sign Up</span>
         </div>
       </div>
 
@@ -53,12 +57,36 @@ export default function SignInPage() {
       <div className="flex items-center justify-center py-20 px-4">
         <div className="w-full max-w-md">
           <div className="bg-white border border-gray-100 rounded-2xl shadow-sm p-10">
-            <h2 className="text-2xl font-bold mb-1">Welcome back</h2>
-            <p className="text-gray-400 text-sm mb-8">Sign in to your Furniro account</p>
+            <h2 className="text-2xl font-bold mb-1">Create an account</h2>
+            <p className="text-gray-400 text-sm mb-8">Join Furniro and start shopping</p>
 
             <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="flex flex-col gap-1">
+                  <label className="text-sm text-gray-600 font-medium">First Name *</label>
+                  <input
+                    name="firstName"
+                    value={form.firstName}
+                    onChange={handleChange}
+                    placeholder="John"
+                    required
+                    className="border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#B88E2F]"
+                  />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <label className="text-sm text-gray-600 font-medium">Last Name</label>
+                  <input
+                    name="lastName"
+                    value={form.lastName}
+                    onChange={handleChange}
+                    placeholder="Doe"
+                    className="border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#B88E2F]"
+                  />
+                </div>
+              </div>
+
               <div className="flex flex-col gap-1">
-                <label className="text-sm text-gray-600 font-medium">Email Address</label>
+                <label className="text-sm text-gray-600 font-medium">Email Address *</label>
                 <input
                   name="email"
                   type="email"
@@ -71,13 +99,26 @@ export default function SignInPage() {
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="text-sm text-gray-600 font-medium">Password</label>
+                <label className="text-sm text-gray-600 font-medium">Password *</label>
                 <input
                   name="password"
                   type="password"
                   value={form.password}
                   onChange={handleChange}
-                  placeholder="Enter your password"
+                  placeholder="At least 6 characters"
+                  required
+                  className="border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#B88E2F]"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label className="text-sm text-gray-600 font-medium">Confirm Password *</label>
+                <input
+                  name="confirmPassword"
+                  type="password"
+                  value={form.confirmPassword}
+                  onChange={handleChange}
+                  placeholder="Repeat your password"
                   required
                   className="border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#B88E2F]"
                 />
@@ -94,15 +135,15 @@ export default function SignInPage() {
                 disabled={loading}
                 className="w-full py-4 bg-black text-white rounded-xl font-medium hover:bg-[#B88E2F] transition-colors disabled:opacity-50"
               >
-                {loading ? "Signing in..." : "Sign In"}
+                {loading ? "Creating account..." : "Create Account"}
               </button>
             </form>
 
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-400">
-                Don't have an account?{" "}
-                <Link href="/signup" className="text-[#B88E2F] font-medium hover:underline">
-                  Sign Up
+                Already have an account?{" "}
+                <Link href="/signin" className="text-[#B88E2F] font-medium hover:underline">
+                  Sign In
                 </Link>
               </p>
             </div>
