@@ -4,15 +4,18 @@ const { v4: uuidv4 } = require("uuid");
 require("dotenv").config();
 
 const app = express();
-app.use(cors({
-  origin: [
-    "https://e-commerce-website-1bn1dtkr1-fatima-kashifs-projects.vercel.app/",
-    "https://e-commerce-website-beige-rho.vercel.app/",
-    "http://localhost:3000"
-  ],
-  methods: ["GET", "POST", "PATCH", "DELETE"],
-  credentials: true
-}));
+
+app.use(cors({ origin: true, methods: ["GET", "POST", "PATCH", "DELETE"], credentials: true }));
+app.use(express.json()); 
+// app.use(cors({
+//   origin: [
+//     "https://e-commerce-website-1bn1dtkr1-fatima-kashifs-projects.vercel.app/",
+//     "https://e-commerce-website-beige-rho.vercel.app/",
+//     "http://localhost:3000"
+//   ],
+//   methods: ["GET", "POST", "PATCH", "DELETE"],
+//   credentials: true
+// }));
 
 
 const payments = new Map();
