@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-
+// production build
 const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,

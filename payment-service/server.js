@@ -4,7 +4,14 @@ const { v4: uuidv4 } = require("uuid");
 require("dotenv").config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: [
+    "https://e-commerce-website-beige-rho.vercel.app",
+    "http://localhost:3000"
+  ],
+  methods: ["GET", "POST", "PATCH", "DELETE"],
+  credentials: true
+}));
 app.use(express.json());
 
 
